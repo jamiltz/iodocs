@@ -39,19 +39,21 @@
               "title": "check_in",
               "required": true,
               "type": "string",
-              "description": "YYYY-MM-DD"
+              "description": "Date format: YYYY-MM-DD",
+              "default": "2014-12-1"
             },
             "checkOut": {
               "title": "check_out",
               "required": true,
               "type": "string",
-              "description": "YYYY-MM-DD"
+              "description": "Date format: YYYY-MM-DD",
+              "default": "2014-12-15"
             },
             "propertyId": {
               "title": "property_id",
               "required": true,
               "type": "integer",
-              "description": "13"
+              "description": "Property IDs never change. You can get them from /properties"
             }
           }
         },
