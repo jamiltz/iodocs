@@ -300,9 +300,11 @@
                     .text(response.call);
             }
             if (response.requestHeaders && !$.isEmptyObject(response.requestHeaders)) {
+                // Skoobr: Change to accommodate for special http header syntax. JSON.parse
+                // was escaping double quotes.
                 $('pre.requestHeaders', resultContainer)
                     .addClass('prettyprint')
-                    .text(formatJSON(response.requestHeaders));
+                    .text('Authorization: ' + response.requestHeaders.Authorization);
             } else if ($.isEmptyObject(response.requestHeaders)) {
                 $('pre.requestHeaders', resultContainer).hide();
                 $('h4.reqHeadText').hide();

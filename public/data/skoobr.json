@@ -19,13 +19,13 @@
               "title": "from",
               "required": false,
               "type": "string",
-              "description": "YYYY-MM-DD (i.e. 2014-01-01)"
+              "description": "Date format: YYYY-MM-DD"
             },
             "to": {
               "title": "to",
               "required": false,
               "type": "string",
-              "description": "YYYY-MM-DD (i.e. 2014-01-30)"
+              "description": "Date format: YYYY-MM-DD"
             }
           }
         },
@@ -40,14 +40,14 @@
               "required": true,
               "type": "string",
               "description": "Date format: YYYY-MM-DD",
-              "default": "2014-12-1"
+              "default": "2014-11-1"
             },
             "checkOut": {
               "title": "check_out",
               "required": true,
               "type": "string",
               "description": "Date format: YYYY-MM-DD",
-              "default": "2014-12-15"
+              "default": "2014-11-15"
             },
             "propertyId": {
               "title": "property_id",
@@ -63,6 +63,20 @@
           "httpMethod": "PUT",
           "path": "/bookings/{BOOKING_ID}",
           "parameters": {
+            "checkIn": {
+              "title": "check_in",
+              "required": true,
+              "type": "string",
+              "description": "Date format: YYYY-MM-DD",
+              "default": "2014-11-16"
+            },
+            "checkOut": {
+              "title": "check_out",
+              "required": true,
+              "type": "string",
+              "description": "Date format: YYYY-MM-DD",
+              "default": "2014-11-30"
+            },
             "BOOKING_ID": {
               "description": "The booking ID of the booking to update",
               "location": "path",
