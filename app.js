@@ -1148,10 +1148,16 @@ function dynamicHelpers(req, res, next) {
 //
 // Routes
 //
+//app.get('/', function(req, res) {
+//    res.render('listAPIs', {
+//        title: config.title
+//    });
+//});
+// Replaced for the skoobr documentation
 app.get('/', function(req, res) {
-    res.render('listAPIs', {
-        title: config.title
-    });
+  res.locals.apiInfo = JSON.parse(JSON.minify(fs.readFileSync(path.join(config.apiConfigDir, 'skoobr' + '.json'), 'utf8')));
+  res.locals.apiName = 'skoobr';
+  res.render('api');
 });
 
 // Process the API request
