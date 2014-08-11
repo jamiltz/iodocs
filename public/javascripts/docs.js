@@ -193,8 +193,9 @@
         var access_token = $('input[name=access_token]').val();
         var client_key = $('input[name=client_key]').val();
 
-        localStorage.setItem('access_token', access_token);
-        localStorage.setItem('client_key', client_key);
+      // Uncomment if localstorage required
+//        localStorage.setItem('access_token', access_token);
+//        localStorage.setItem('client_key', client_key);
 
         var params = $(this).serializeArray(),
             skoobrString = { name: 'skoobrString', value: "Token token=\"" + access_token + "\", client=\"" + client_key + "\""},
