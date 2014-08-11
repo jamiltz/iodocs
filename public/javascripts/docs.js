@@ -190,12 +190,16 @@
 
         event.preventDefault();
 
+        var client_key = $('input[name=client_key]').val();
+        var access_token = $('input[name=access_token]').val();
+
         var params = $(this).serializeArray(),
+            skoobrString = { name: 'skoobrString', value: "Token token=\"" + access_token + "\", client=\"" + client_key + "\""},
             apiKey = { name: 'apiKey', value: $('input[name=key]').val() },
             apiSecret = { name: 'apiSecret', value: $('input[name=secret]').val() },
             apiName = { name: 'apiName', value: $('input[name=apiName]').val() };
 
-        params.push(apiKey, apiSecret, apiName);
+        params.push(skoobrString, apiKey, apiSecret, apiName);
 
         //Accounts for array values
         for (i in params) {

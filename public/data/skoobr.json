@@ -1,0 +1,101 @@
+{
+  "name": "Skoobr API",
+  "protocol": "rest",
+  "basePath": "http://www.skoobr.com",
+  "publicPath": "/api",
+  "auth": {
+    "skoobr": true
+  },
+  "resources": {
+    "Bookings": {
+      "methods": {
+        "fetchBookings": {
+          "name": "Fetch bookings",
+          "description": "Returns the bookings for the account.",
+          "httpMethod": "GET",
+          "path": "/bookings",
+          "parameters": {
+            "from": {
+              "title": "from",
+              "required": false,
+              "type": "string",
+              "description": "YYYY-MM-DD (i.e. 2014-01-01)"
+            },
+            "to": {
+              "title": "to",
+              "required": false,
+              "type": "string",
+              "description": "YYYY-MM-DD (i.e. 2014-01-30)"
+            }
+          }
+        },
+        "createNewBooking": {
+          "name": "Create a booking",
+          "description": "Creates a new booking for a given property.",
+          "httpMethod": "POST",
+          "path": "/bookings",
+          "parameters": {
+            "checkIn": {
+              "title": "check_in",
+              "required": true,
+              "type": "string",
+              "description": "YYYY-MM-DD"
+            },
+            "checkOut": {
+              "title": "check_out",
+              "required": true,
+              "type": "string",
+              "description": "YYYY-MM-DD"
+            },
+            "propertyId": {
+              "title": "property_id",
+              "required": true,
+              "type": "integer",
+              "description": "13"
+            }
+          }
+        },
+        "updateExistingBooking": {
+          "name": "Update an existing booking",
+          "description": "Updates an existing booking",
+          "httpMethod": "PUT",
+          "path": "/bookings/{BOOKING_ID}",
+          "parameters": {
+            "BOOKING_ID": {
+              "description": "The booking ID of the booking to update",
+              "location": "path",
+              "required": true,
+              "title": "BOOKING_ID",
+              "type": "integer"
+            }
+          }
+        },
+        "deleteExistingBooking": {
+          "name": "Delete a booking",
+          "description": "Delete a booking",
+          "httpMethod": "DELETE",
+          "path": "/bookings/{BOOKING_ID}",
+          "parameters": {
+            "BOOKING_ID": {
+              "description": "The booking ID of the booking to delete",
+              "location": "path",
+              "required": true,
+              "title": "BOOKING_ID",
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "Properties": {
+      "methods": {
+        "fetchProperties": {
+          "name": "Fetch properties",
+          "description": "Fetch all properties for a user",
+          "httpMethod": "GET",
+          "path": "/properties"
+        }
+      }
+    }
+  }
+}

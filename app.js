@@ -607,6 +607,7 @@ function processRequest(req, res, next) {
         methodURL = reqQuery.methodUri,
         httpMethod = reqQuery.httpMethod,
         apiKey = reqQuery.apiKey,
+        skoobrString = reqQuery.skoobrString,
         apiSecret = reqQuery.apiSecret,
         apiName = reqQuery.apiName,
         apiConfig = JSON.parse(JSON.minify(fs.readFileSync(path.join(config.apiConfigDir, apiName + '.json'), 'utf8'))),
@@ -997,6 +998,18 @@ function processRequest(req, res, next) {
 
         if (!options.headers['Content-Type'] && requestBody) {
             options.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+        }
+
+        // Add Skoobr Auth Header
+        if (skoobrString != '' && skoobrString != 'undefined' && skoobrString != undefined) {
+          if (options.path.indexOf('?') !== -1) {
+            options.path += '&';
+          }
+          else {
+            options.path += '?';
+          }
+          console.log(apiConfig.auth.skoobr);
+          options.headers['Authorization'] = skoobrString;
         }
 
         if (config.debug) {

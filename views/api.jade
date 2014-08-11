@@ -34,6 +34,12 @@ block content
               - else
                   - var defaultSecret =''
               div
+                - if (apiInfo.auth.skoobr)
+                  label(for='access_token') Access Token
+                  input(id='access_token', name='access_token', style='color=#EEEEEE')
+                  label(for='client_key') Client Key
+                  input(id='client_key', name='client_key', style='color=#EEEEEE')
+                - else
                   - if (oAuthVersion)
                       label(for='key') Client ID
                       - var secure ='authrequired'
